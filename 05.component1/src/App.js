@@ -17,7 +17,7 @@ function App() {
       <h1>Start React 2025 Tjoeun</h1>
       <h3>Component 실습</h3>
 
-      {isStudent ? <h4>{Student(user)}님 활영합니다.</h4> : <h4>학원생이 아닙니다.</h4>}
+      {isStudent ? <h4>{Student(user)}님 환영합니다.</h4> : <h4>학원생이 아닙니다.</h4>}
 
       {/* <Com1></Com1>
       <Com1/>
