@@ -9,9 +9,11 @@ function ArrowFun() {
         return a+b;
     }
 
+    // 
     const func3 = (a, b) => a+b
     console.log(`func3 : ${func3(1,2)}`);
-
+ 
+    // 매개변수가 1일 때만 소괄호() 생략가능
     const func4 = (a) => a+5
     console.log(`func4 : ${func4(9)}`);
 
@@ -20,6 +22,7 @@ function ArrowFun() {
             return num+value;
         }
     }
+    // const func5 num => value => num+value;
 
     let func5Num = func5(5);
     let result = func5Num(7);

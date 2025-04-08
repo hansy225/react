@@ -1,0 +1,17 @@
+body {
+  padding: 20px;
+}
+
+.App {
+  margin: 0 auto;
+  width: 400px;
+}
+
+.App > section {
+  background-color: thistle;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 10px;
+}

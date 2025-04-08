@@ -14,8 +14,8 @@ const Counter = () => {
     return (
         <>
             <h1>{count}</h1>
-            <button onclick={function(){return Counter(count+1)}}>+</button> &emsp;
-            <button onclick={function(){return Counter(count-1)}}>-</button> <br/><br/>
+            <button onClick={() => {setCount(count+1)}}>+</button>&emsp;
+            <button onClick={() => {setCount(count-1)}}>-</button> <br/><br/>
         </>
     )
 }
