@@ -1,38 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Markazi+Text:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR&display=swap');
+
+/* 전체 앱 스타일 */
 .App {
   text-align: center;
+  font-family: 'Markazi Text', 'Noto Serif KR', serif;
+  background-color: #f9f7fc;
+  min-height: 100vh;
+  padding: 30px 0;
 }
 
+/* 상단 제목 */
 h2 {
-  background-color: rebeccapurple;
+  background-color: #6a0dad;
   color: white;
-  padding: 10px;
-  font-weight: bold;
-  font-size: xx-large;
-  text-align: center;
+  padding: 15px;
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  border-radius: 8px;
 }
 
+/* 리스트 항목 */
 .list {
-  background-color: rgb(199, 182, 233);
-  margin: 10px;
-  padding: 1px;
+  background-color: #d9c4f1;
+  margin: 15px auto;
+  padding: 20px;
+  width: 80%;
+  max-width: 500px;
   text-align: left;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(106, 13, 173, 0.15);
 }
 
+.list h4 {
+  cursor: pointer;
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.list p {
+  margin: 8px 0 0;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+/* 좋아요 이모지 */
 span {
   cursor: pointer;
-  font-size: large;
+  font-size: 1.2rem;
+  margin-left: 8px;
 }
 
+/* 버튼 */
 div > button {
-  background-color: rebeccapurple;
+  background-color: #6a0dad;
   color: white;
-  padding: 5px 30px;
-  border: 2px solid rgb(199, 182, 233);
-  font-weight: bold;
+  padding: 6px 24px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
 }
 
+div > button:hover {
+  background-color: #57119c;
+}
+
+/* 모달 스타일 */
 .modal {
-  background-color: rgb(168, 131, 243);
-  padding: 10px;
-  margin: 20px 50px;
+  background-color: #be9fe1;
+  padding: 25px;
+  margin: 30px auto;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(106, 13, 173, 0.2);
+}
+
+.modal h4 {
+  margin-top: 0;
+  font-size: 1.5rem;
+}
+
+.modal p {
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.update {
+  margin-top: 15px;
+}
+
+/* 인풋 스타일 */
+input {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  margin-top: 20px;
+  width: 60%;
+  max-width: 300px;
 }
