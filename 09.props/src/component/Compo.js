@@ -49,11 +49,12 @@ const Compo = () => {
         alert('버튼 누르지마');
         console.log(e);
         console.log(e.target.name);
+        console.log(e.target.value);
     }
     return (
         <>
            <h3>버튼 만들기</h3>
-           <button onClick={btnClick} name='A버튼'>A버튼 이벤트</button> <br/><br/>
+           <button onClick={btnClick} name='A버튼' value="abc">A버튼 이벤트</button> <br/><br/>
            <button onClick={() => {alert('왜불러')}} name='B버튼'>B버튼 이벤트</button> <br/><br/>
            {/* 1. <Button /> &emsp; */}
            <Button btnValue={btnProps}/> &emsp; {/* 2. */}

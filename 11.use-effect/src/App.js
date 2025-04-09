@@ -52,9 +52,9 @@ function App() {
 
   // unmount 될 때 => retrun 사용
   useEffect(() => {
-    console.log('Mount');
+    console.log('Mount');  // mount 될 때 호출
     return () => {
-      console.log('unMount');
+      console.log('unMount');  // unmount 될 때 호출
     }
   },[])
 

@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&family=Jua&display=swap');
+
+* {
+  box-sizing: border-box;
+  font-family: 'Sour Gummy', 'Jua', sans-serif;
+}
+
+body {
+  background-color: #fff0f5;
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  width: 500px;
+  margin: 40px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Header */
+.Header h2 {
+  background-color: #ff8fab;
+  color: white;
+  padding: 15px;
+  margin: 0;
+  border-radius: 10px 10px 0 0;
+  font-size: 24px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.Header h3 {
+  background-color: #ffb3c6;
+  color: white;
+  padding: 10px;
+  margin-top: -10px;
+  border-radius: 0 0 10px 10px;
+  font-size: 18px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  margin-bottom: -10px;
+}
+
+/* Editor */
+.Editor {
+  text-align: right;
+  background-color: #ffe5ec;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.Editor input {
+  padding: 8px;
+  width: 60%;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-right: 10px;
+}
+
+.Editor button {
+  background-color: #ff8fab;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 15px;
+  cursor: pointer;
+  transition: background-color 0.2s ease; /* 마우스 올리면 부드럽게 색이 변함 (0.2초 동안 천천히) */
+}
+
+.Editor button:hover {
+  background-color: #ff5d8f;
+}
+
+/* List */
+.List h4 {
+  background-color: #ffc2d1;
+  color: #333;
+  padding: 15px;
+  margin: 0;
+  border-radius: 8px;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+  margin-bottom: 15px;
+}
+
+/* Checkbox */
+.List input {
+  margin-left: 20px;
+  transform: scale(1.2);
+  margin-bottom: 10px;
+}
+
+/* Todo Item */
+.Todoitem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffe5ec;
+  margin: 10px 0;
+  padding: 10px 15px;
+  border-radius: 8px;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+}
+
+.Todoitem button {
+  background-color: #ff4d6d;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.Todoitem button:hover {
+  background-color: #e63946;
+}
