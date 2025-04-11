@@ -22,12 +22,16 @@ body {
 }
 
 h4 {
-  font-size: xx-small;
+  font-size: 1.1rem;
   font-weight: 600;
 }
 
 .btn {
   margin-bottom: 30px;
+}
+
+.list > img :hover {
+  cursor: pointer;
 }
 
 /* 상세페이지 스타일 */
@@ -57,6 +61,16 @@ h4 {
   color: #444;
 }
 
+.start {
+  opacity: 0;
+}
+
+.end {
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+
+/* 푸터 */
 .footer { 
   background-color: rgb(33,37,41);
   color: #fff;

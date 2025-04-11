@@ -15,6 +15,7 @@ import axios from 'axios';
 
 function App() {
   const [product, setProduct] = useState(pList);
+  const [clickCount, setClickCount] = useState(2);
 
   let navigate = useNavigate();
 
@@ -25,7 +26,6 @@ function App() {
           <Navbar.Brand>Yves Saint Laurent</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link onClick={() => {navigate('/')}}>HOME</Nav.Link>
-            <Nav.Link onClick={() => {navigate('/detail')}}>DETAIL</Nav.Link>
             <Nav.Link onClick={() => {navigate('/cart')}}>CART</Nav.Link>
             <Nav.Link onClick={() => {navigate('/about')}}>ABOUT</Nav.Link>
           </Nav> 
@@ -47,28 +47,18 @@ function App() {
             </Container>
 
             <Button calssname='btn' variant="outline-secondary" onClick={() => {
-              axios.get('https://raw.githubusercontent.com/hansy225/data/refs/heads/main/data2.json')
+              axios.get(`https://raw.githubusercontent.com/hansy225/data/refs/heads/main/data${clickCount}.json`)
                    .then((result) => {
                     console.log(result);
                     console.log(result.data);
                     setProduct([...product, ...result.data]);
+                    setClickCount(clickCount+1);
                    })
                    .catch(() => {
                     console.log('데이터 가져오기 실패');
+                    alert('더이상 상품이 없습니다.');
                    })
-            }}>서버에서 데이터1 가져오기</Button> <br />
-
-            <Button calssname='btn' variant="outline-secondary" onClick={() => {
-              axios.get('https://raw.githubusercontent.com/hansy225/data/refs/heads/main/data2.json')
-                   .then((result) => {
-                    console.log(result);
-                    console.log(result.data);
-                    setProduct([...product, ...result.data]);
-                   })
-                   .catch(() => {
-                    console.log('데이터 가져오기 실패');
-                   })
-            }}>서버에서 데이터2 가져오기</Button>
+            }}>서버에서 데이터 가져오기</Button> <br />
 
           </>
         } /> 
@@ -93,12 +83,17 @@ function App() {
   );
 }
 
-function PListCol(props) {
+function PListCol({product}) {
+  const Navigate = useNavigate();
+
+  const goDetail = () => {
+    Navigate(`/detail/${product.id}`);
+  }
   return (
-    <Col md={4}>
-      <img src={`${process.env.PUBLIC_URL}/img/img${props.product.id}.png`} width="45%" />
-      <h4>{props.product.title}</h4>
-      <p>{props.product.price}원</p>
+    <Col md={4} onClick={goDetail} className='list'>
+      <img src={`${process.env.PUBLIC_URL}/img/img${product.id}.png`} width="45%" />
+      <h4>{product.title}</h4>
+      <p>{product.price}원</p>
     </Col>
   );
 }
