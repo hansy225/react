@@ -1,16 +1,19 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, Navbar, Nav, Row, Col, Button } from 'react-bootstrap';
+import { Container, Navbar, Nav, Row, Col } from 'react-bootstrap';
 import { useState } from 'react';
 import pList from './data/ProductList';
 import { Routes, Route, Link, useNavigate } from 'react-router-dom';
 import Detail from './pages/Detail';
 import Cart from './pages/Cart';
-import axios from 'axios';
 
 /*
-    * axios(ajox 사용하기)
-      : fetch()
+  * react-router-dom
+    : 페이지를 교체시켜주는 api -> router-dom
+
+  * 사용하려면
+    1. 설치 : npm install react-router-dom
+    2. index.js에 <BrowserRouter> 태그 넣어주기    
 */
 
 function App() {
@@ -28,7 +31,10 @@ function App() {
             <Nav.Link onClick={() => {navigate('/detail')}}>DETAIL</Nav.Link>
             <Nav.Link onClick={() => {navigate('/cart')}}>CART</Nav.Link>
             <Nav.Link onClick={() => {navigate('/about')}}>ABOUT</Nav.Link>
-          </Nav> 
+
+            {/* <Nav.Link onClick={() => {navigate(1)}}>CART</Nav.Link>  1페이지 앞으로
+            <Nav.Link onClick={() => {navigate(-1)}}>CART</Nav.Link> 1페이지 뒤로 */}
+          </Nav>
         </Container>
       </Navbar>
 
@@ -45,34 +51,17 @@ function App() {
                 }
               </Row>
             </Container>
-
-            <Button calssname='btn' variant="outline-secondary" onClick={() => {
-              axios.get('https://raw.githubusercontent.com/hansy225/data/refs/heads/main/data2.json')
-                   .then((result) => {
-                    console.log(result);
-                    console.log(result.data);
-                    setProduct([...product, ...result.data]);
-                   })
-                   .catch(() => {
-                    console.log('데이터 가져오기 실패');
-                   })
-            }}>서버에서 데이터1 가져오기</Button> <br />
-
-            <Button calssname='btn' variant="outline-secondary" onClick={() => {
-              axios.get('https://raw.githubusercontent.com/hansy225/data/refs/heads/main/data2.json')
-                   .then((result) => {
-                    console.log(result);
-                    console.log(result.data);
-                    setProduct([...product, ...result.data]);
-                   })
-                   .catch(() => {
-                    console.log('데이터 가져오기 실패');
-                   })
-            }}>서버에서 데이터2 가져오기</Button>
-
           </>
         } /> 
-        <Route path='/detail/:pindex' element={<Detail product={product} />} />      
+        <Route path='/detail/:pindex' element={<Detail product={product} />} />
+
+        {/* 
+        - member는 문자
+        <Route path='/detail/member/:pid' element={<Detail clothes={clothes}/>} />
+                  
+        - 데이터를 여러개 보낼 때  /detail/1/홍길동 
+        <Route path='/detail/:pid/:name' element={<Detail clothes={clothes}/>} />    
+        */}           
 
         <Route path='/cart' element={<Cart />} />
         <Route path='/about' element={<div>더조은 컴퓨터 아카데미</div>} />
@@ -95,11 +84,13 @@ function App() {
 
 function PListCol(props) {
   return (
-    <Col md={4}>
-      <img src={`${process.env.PUBLIC_URL}/img/img${props.product.id}.png`} width="45%" />
-      <h4>{props.product.title}</h4>
-      <p>{props.product.price}원</p>
-    </Col>
+    <>
+      <Col md={4}>
+        <img src={`${process.env.PUBLIC_URL}/img/img${props.product.id}.png`} width="45%" />
+        <h4>{props.product.title}</h4>
+        <p>{props.product.price}원</p>
+      </Col>
+    </>
   );
 }
 
