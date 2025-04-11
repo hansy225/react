@@ -23,24 +23,6 @@ const pList = [
       title : '러브샤인 캔디 글레이즈',
       content : '캔디글레이즈 글로스밤',
       price : 55000
-    },
-    {
-      id : 4,
-      title : '라인즈 리버레이티드 펜슬 아이라이너',
-      content : '펜슬 아이라이너',
-      price : 55000
-    },
-    {
-      id : 5,
-      title : '꾸뛰르 미니 클러치',
-      content : '아이 팔레트',
-      price : 99000
-    },
-    {
-      id : 6,
-      title : '래쉬 클래쉬 워터프루프 마스카라',
-      content : '래쉬 클래쉬 마스카라',
-      price : 59000
     }
 ]
 
