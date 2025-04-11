@@ -2,7 +2,7 @@ import Todoitem from './Todoitem';
 import { useState } from 'react';
 
 // todos = 배열4개
-const List = ({todos}) => {
+const List = ({todos, onUpdate, onDelete}) => {
     const [search, setSearch] = useState('');
     const getSearchData = () => {
         if(search == "") {
@@ -23,9 +23,9 @@ const List = ({todos}) => {
                 }} />
             <div className='todos_wrapper'>
                 {
-                    filterTodos.map((todo) => 
+                    filterTodos.map((todo, i) => 
                     // <Todoitem todo={todo}/>
-                    <Todoitem {...todo}/>
+                    <Todoitem {...todo} key={i} onUpdate={onUpdate} onDelete={onDelete}/>
                     )
                 }
                 
