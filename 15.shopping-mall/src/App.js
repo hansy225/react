@@ -38,10 +38,6 @@ function App() {
         </Container>
       </Navbar>
 
-      {/* <Link to="/">HOME</Link>
-      <Link to="/detail">상세페이지</Link>
-      <Link to="/cart">장바구니</Link> */}
-
       <Routes>
         <Route path='/' element={
           <>
@@ -58,11 +54,15 @@ function App() {
           </>
         } /> 
         <Route path='/detail/:pindex' element={<Detail product={product} />} />
+
         {/* 
-        <Route path='/detail' element={<Detail product={product} />} /> 
-        <Route path='/detail/member/:pid' element={<Detail product={product} />} /> -> member는 문자
-        <Route path='/detail/:pid/:name' element={<Detail product={product} />} /> -> 데이터를 여러 개 보낼 때 /detail/1/홍길동
-        */}             
+        - member는 문자
+        <Route path='/detail/member/:pid' element={<Detail clothes={clothes}/>} />
+                  
+        - 데이터를 여러개 보낼 때  /detail/1/홍길동 
+        <Route path='/detail/:pid/:name' element={<Detail clothes={clothes}/>} />    
+        */}           
+
         <Route path='/cart' element={<Cart />} />
         <Route path='/about' element={<div>더조은 컴퓨터 아카데미</div>} />
 
@@ -86,7 +86,7 @@ function PListCol(props) {
   return (
     <>
       <Col md={4}>
-        <img src={`${process.env.PUBLIC_URL}/img/img${props.product.id}.png`} width="75%" />
+        <img src={`${process.env.PUBLIC_URL}/img/img${props.product.id}.png`} width="45%" />
         <h4>{props.product.title}</h4>
         <p>{props.product.price}원</p>
       </Col>
