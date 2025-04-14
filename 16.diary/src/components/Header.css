@@ -1,0 +1,20 @@
+.Header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0;
+    border-bottom: 1px solid lightslategray;
+}
+
+.Header_center {
+    width: 50%;
+    justify-content: center;
+}
+
+.header_left {
+    width: 25%;
+}
+
+.header_right {
+    width: 25%;
+}

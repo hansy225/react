@@ -1,0 +1,18 @@
+.button {
+    background-color: lightblue;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.button_green {
+    background-color: olivedrab;
+    color: white;
+}
+
+.button_red {
+    background-color: red;
+    color: white;
+}

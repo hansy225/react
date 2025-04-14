@@ -1,22 +1,22 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Navbar, Nav, Row, Col, Button } from 'react-bootstrap';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import pList from './data/ProductList';
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Routes, Route, Link, useNavigate } from 'react-router-dom';
 import Detail from './pages/Detail';
 import Cart from './pages/Cart';
 import axios from 'axios';
 
+/*  
+  * axios (ajax 사용하기) 
+    : fetch() 사용할 수 있음. json의 형태로 자동 변경
+  
+      >  문서 : https://axios-http.com/kr/docs/intro)
+          1. 설치부터 시작
+*/
+
 function App() {
-
-  // 최근에 본 상품 보여주기
-  useEffect(() => {
-    if(!localStorage.getItem('recentProduct')){
-      localStorage.setItem('recentProduct', JSON.stringify( [] ))
-    }
-  },[])
-
   const [product, setProduct] = useState(pList);
   const [clickCount, setClickCount] = useState(2);
 
@@ -43,9 +43,7 @@ function App() {
               <Row>
                 {
                   product.map((v, i) => {
-                    return (
-                    <PListCol product={v} key={i} />
-                    )
+                    return <PListCol product={v} key={i} />
                   })
                 }
               </Row>

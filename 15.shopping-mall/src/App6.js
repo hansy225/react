@@ -3,18 +3,44 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Navbar, Nav, Row, Col, Button } from 'react-bootstrap';
 import { useEffect, useState } from 'react';
 import pList from './data/ProductList';
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Routes, Route, Link, useNavigate } from 'react-router-dom';
 import Detail from './pages/Detail';
 import Cart from './pages/Cart';
 import axios from 'axios';
 
 function App() {
 
-  // 최근에 본 상품 보여주기
+/*
+  // [object Object]의 문자열로 들어감 쓸 수 없음
+  let obj = {addr : '강남구'}
+  localStorage.setItem('addr', obj);
+  */
+
+  // JSON으로 모두 문자열로 변환하여 넣는다
+  let obj = {addr : '강남구'}
+  let addr = JSON.stringify(obj)
+  localStorage.setItem('addr', addr);
+
+  let user = {
+    name: 'kim',
+    age : 25,
+    hobbies : ['programing', 'gaming']
+  }
+  localStorage.setItem('user', JSON.stringify(user))
+
+  // 가져올 때 json의 형태로 들어옴
+  let getUser = localStorage.getItem('user');
+  console.log(getUser)
+  console.log(getUser.name)  // 사용못함
+
+  // 가져올 때 json -> object 형태로 변환
+  let storageUser = localStorage.getItem('user');
+  let u = JSON.parse(storageUser) // object로 변경
+  console.log(u.name)
+
+  // 문. 최근에 본 상품 보여주기
   useEffect(() => {
-    if(!localStorage.getItem('recentProduct')){
-      localStorage.setItem('recentProduct', JSON.stringify( [] ))
-    }
+    localStorage.setItem('recentProduct', JSON.stringify( [] ))
   },[])
 
   const [product, setProduct] = useState(pList);

@@ -1,26 +1,35 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Navbar, Nav, Row, Col, Button } from 'react-bootstrap';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import pList from './data/ProductList';
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Routes, Route, Link, useNavigate } from 'react-router-dom';
 import Detail from './pages/Detail';
 import Cart from './pages/Cart';
 import axios from 'axios';
 
+/*  
+  * SPA의 단점
+    - 컴포넌트간의 STATE공유 어려움
+
+  * 공유저장 공간 사용
+    1. Context Api : 기본 탑재되어 있음
+       잘 안쓰는 이유 : 성능 이슈(하나만 변해도 하위의 모든것들을 재랜더링)
+                       재사용이 어렵다
+    2. Redux : 외부 라이브러리
+       주로 사용
+*/
+
+export let Context1 = createContext();
+
 function App() {
-
-  // 최근에 본 상품 보여주기
-  useEffect(() => {
-    if(!localStorage.getItem('recentProduct')){
-      localStorage.setItem('recentProduct', JSON.stringify( [] ))
-    }
-  },[])
-
   const [product, setProduct] = useState(pList);
   const [clickCount, setClickCount] = useState(2);
 
   let navigate = useNavigate();
+
+  // 재고 변경 
+  let [stock, setStock] = useState([5, 10, 7]);
 
   return (
     <div className="App">
@@ -43,9 +52,7 @@ function App() {
               <Row>
                 {
                   product.map((v, i) => {
-                    return (
-                    <PListCol product={v} key={i} />
-                    )
+                    return <PListCol product={v} key={i} />
                   })
                 }
               </Row>
