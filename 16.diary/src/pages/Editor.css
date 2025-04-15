@@ -1,0 +1,45 @@
+.Editor {
+    margin: 0 auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 10px;
+    font-family: 'Segoe UI', sans-serif;
+}
+  
+.Editor section {
+margin-bottom: 20px;
+}
+
+.Editor h4 {
+margin-bottom: 8px;
+color: #444;
+font-size: 1.1rem;
+font-weight: bold;
+}
+
+.Editor input[type="date"],
+.Editor textarea {
+width: 100%;
+padding: 12px;
+border: 1px solid lightgray;
+border-radius: 10px;
+font-size: 1rem;
+background-color: #fffdf8;
+}
+
+.Editor textarea {
+min-height: 120px;
+}
+
+.editor_btn {
+display: flex;
+justify-content: flex-end;
+gap: 12px;
+}
+
+.emotion_list {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }

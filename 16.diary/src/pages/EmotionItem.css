@@ -1,0 +1,29 @@
+.EmotionItem > img {
+    width: 100px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+}
+
+.EmotionItem {
+    text-align: center;
+}
+
+.emotion_name {
+    font-size: medium;
+}
+
+.emo_name {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #444;
+  }
+
+.EmotionItem_on_1 { background-color: #a8e6cf; color: #333; border-radius: 50% 50% 0 0;} 
+.EmotionItem_on_2 { background-color: #d0e6ff; color: #333; border-radius: 50% 50% 0 0;}
+.EmotionItem_on_3 { background-color: #fff9b0; color: #333; border-radius: 50% 50% 0 0;} 
+.EmotionItem_on_4 { background-color: #ffe0ac; color: #333; border-radius: 50% 50% 0 0;} 
+.EmotionItem_on_5 { background-color: #ffd1dc; color: #333; border-radius: 50% 50% 0 0;}
+.EmotionItem_on_6 { background-color: #ffb3ba; color: #333; border-radius: 50% 50% 0 0;} 
+.EmotionItem_on_7 { background-color: #f4c2c2; color: #333; border-radius: 50% 50% 0 0;} 
+  

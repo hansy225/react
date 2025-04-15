@@ -1,0 +1,45 @@
+.DiaryList {
+    padding: 0 20px;
+    background-color: #fffaf0;
+    min-height: 100vh;
+}
+
+.menu_bar {
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu_bar select {
+    background-color: #ffe4e1;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    color: #444;
+}
+
+.menu_bar select:hover {
+    background-color: #ffd4da;
+}
+
+.menu_bar button {
+    padding: 10px 20px;
+    background-color: #a3d8f4;
+    color: #444;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.menu_bar button:hover {
+    background-color: #91cce7;
+}
+
+.list_wrapper {
+    margin-top: 10px;
+}

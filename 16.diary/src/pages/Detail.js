@@ -1,6 +1,26 @@
+import Header from "../components/Header";
+import Button from "../components/Button";
+import Editor from "./Editor";
+import { useNavigate, useParams } from "react-router-dom";
+import { useEffect } from "react";
+
 const Detail = () => {
+    const nav = useNavigate();
+    // const { id } = useParams();
+    // const [data, setData] = useEffect(null);
+
+    // useEffect(() => {
+
+    // })
+
     return (
-        <div>Detail 페이지입니다.</div>
+        <div>
+            <Header 
+                title={"일기 상세보기"}
+                leftChild={<Button text={"이전"} onClick={() => {nav(-1)}}/>}
+            />
+            <Editor />
+        </div>
     )
 }
 
