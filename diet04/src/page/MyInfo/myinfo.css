@@ -50,13 +50,8 @@
   .info-group input:disabled {
     background-color: #b1d2f6;
     opacity: 0.8;
-    color: #181e40;
   }
   
-  .myinfo-form .info-group:nth-child(5) {
-    margin-top: 30px;
-  }
-
   .edit-button {
     margin-top: 40px;
     width: 100%;
@@ -69,7 +64,7 @@
     cursor: pointer;
     text-align: center;
   }
-
+  
   .edit-button:hover {
     background-color: #243d78;
   }

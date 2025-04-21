@@ -4,14 +4,14 @@ import { useEffect, useState } from 'react';
 
 import Navbar from './components/Navbar';
 
-import Calories from './page/calories';
-import Challenge from './page/challenge';
-import Exercise from './page/exercise';
-import Community from './page/Community';
-import Calendar from './page/calendar';
-import MyInfo from './page/myinfo';
-import Login from './page/login';
-import SignUp from './page/SignUp';
+import Calories from './page/Calories/calories';
+import Challenge from './page/Challenge/challenge';
+import Exercise from './page/Exercise/exercise';
+import Community from './page/Community/community';
+import Calendar from './page/Calendar/calendar';
+import MyInfo from './page/MyInfo/myinfo';
+import Login from './page/Login/login';
+import SignUp from './page/SignUp/SignUp';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
