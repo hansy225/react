@@ -7,7 +7,7 @@ import Navbar from './components/Navbar';
 import Calories from './page/calories';
 import Challenge from './page/challenge';
 import Exercise from './page/exercise';
-import Community from './page/community';
+import Community from './page/Community';
 import Calendar from './page/calendar';
 import MyInfo from './page/myinfo';
 import Login from './page/login';
