@@ -1,0 +1,28 @@
+.my-post-buttons {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.my-post-buttons button {
+  padding: 0.4rem 1rem;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.my-post-buttons button:first-child {
+  background-color: #4caf50;
+  color: white;
+}
+
+.my-post-buttons button:last-child {
+  background-color: #f44336;
+  color: white;
+}
+
+.my-post-buttons button:hover {
+  opacity: 0.9;
+}
