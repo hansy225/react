@@ -1,3 +1,14 @@
+.my-post-container {
+  display: flex;
+  justify-content: center;
+}
+
+.my-post-title {
+  text-align: center;
+  margin-top: 80px;
+  color: #3f528c;
+}
+
 .my-post-buttons {
   display: flex;
   gap: 0.5rem;
