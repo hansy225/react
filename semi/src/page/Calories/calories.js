@@ -14,7 +14,10 @@ const Calories = ({ userId }) => {
   const [selectedFood, setSelectedFood] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
+  // ✅ useEffect는 컴포넌트 최상단에서 호출
   useEffect(() => {
+    console.log("userId", userId);
+    if (!userId) return; // 내부에서 userId 확인
     axios
       .get('http://localhost:8080/foods')
       .then((response) => {
@@ -25,7 +28,7 @@ const Calories = ({ userId }) => {
         console.error("Error fetching foods", error);
         setIsLoading(false);
       });
-  }, []);
+  }, [userId]);
 
   const handleSearch = (e) => {
     const keyword = e.target.value;
@@ -55,14 +58,17 @@ const Calories = ({ userId }) => {
   };
 
   const saveFoodLog = () => {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
     const allFoods = Object.entries(meals).flatMap(([mealName, foods]) =>
       foods.map((food) => ({
-        userId: userId, // 로그인된 사용자 ID 사용
+        userId: userId,
         foodId: food.foodId,
         quantity: 1,
         totalCalories: food.calories,
         mealTime: mealName,
-        logDate: new Date(),
+        logDate: today,
       }))
     );
 
@@ -90,6 +96,11 @@ const Calories = ({ userId }) => {
       .flat()
       .reduce((total, food) => total + food.calories, 0);
   };
+
+  // 렌더링은 여기서 조건 처리
+  if (!userId) {
+    return <div>유저 정보를 불러오는 중입니다...</div>;
+  }
 
   return (
     <div className="calories-container">

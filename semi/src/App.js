@@ -15,16 +15,24 @@ import SignUp from './page/SignUp/SignUp';
 import Write from './page/Community/pages/Write';  
 import Detail from './page/Community/pages/Detail';  
 import MyPost from "./page/Community/pages/MyPost";
+import Edit from "./page/Community/pages/Edit";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isAuthLoaded, setIsAuthLoaded] = useState(false);
+  const [userId, setUserId] = useState(null);  // ✅ userId 상태 유지
 
   useEffect(() => {
-    const stored = localStorage.getItem('isLoggedIn');
-    if (stored === 'true') {
+    const storedLogin = localStorage.getItem('isLoggedIn');
+    const storedUserId = localStorage.getItem('userId');
+
+    if (storedLogin === 'true') {
       setIsLoggedIn(true);
     }
+    if (storedUserId) {
+      setUserId(storedUserId);
+    }
+
     setIsAuthLoaded(true);
   }, []);
 
@@ -37,6 +45,7 @@ function App() {
     setIsLoggedIn(false);
     localStorage.removeItem('isLoggedIn');
     localStorage.removeItem('userId');
+    setUserId(null);
   };
 
   if (!isAuthLoaded) return <div>로딩 중...</div>;
@@ -51,21 +60,13 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={isLoggedIn ? <Navigate to="/main" replace /> : <Login setIsLoggedIn={handleLogin} />}
+          element={isLoggedIn ? <Navigate to="/main" replace /> : <Login setIsLoggedIn={handleLogin} setUserId={setUserId} />}
         />
+        <Route path="/" element={isLoggedIn ? <Navigate to="/main" replace /> : <Login setIsLoggedIn={handleLogin} setUserId={setUserId} />} />
         <Route path="/main" element={isLoggedIn ? <Main /> : <Navigate to="/" replace />} />
         <Route path="/signup" element={<SignUp setIsLoggedIn={handleLogin} />} />
-        <Route path="/calendar" element={isLoggedIn ? <Calendar /> : <Navigate to="/" replace />} />
-        <Route
-          path="/calories"
-          element={
-            isLoggedIn ? (
-              <Calories userId={localStorage.getItem('userId')} />
-            ) : (
-              <Navigate to="/" replace />
-            )
-          }
-        />
+        <Route path="/calendar" element={isLoggedIn ? <Calendar userId={userId} /> : <Navigate to="/" replace />} />
+        <Route path="/calories" element={isLoggedIn ? <Calories userId={userId} /> : <Navigate to="/" replace />} />
         <Route path="/challenge" element={isLoggedIn ? <Challenge /> : <Navigate to="/" replace />} />
         <Route path="/exercise" element={isLoggedIn ? <Exercise /> : <Navigate to="/" replace />} />
         <Route path="/community" element={isLoggedIn ? <Community /> : <Navigate to="/" replace />} />
@@ -73,6 +74,7 @@ function App() {
         <Route path="/myinfo" element={isLoggedIn ? <MyInfo /> : <Navigate to="/" replace />} />
         <Route path="/write" element={isLoggedIn ? <Write /> : <Navigate to="/" replace />} />
         <Route path="/mypost" element={<MyPost />} />
+        <Route path="/edit/:id" element={<Edit />} />
       </Routes>
     </Router>
   );

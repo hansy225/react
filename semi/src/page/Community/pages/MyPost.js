@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import './MyPost.css'; 
+import { Link } from "react-router-dom";
+
 
 const MyPost = () => {
   const [posts, setPosts] = useState([]);
   const userId = localStorage.getItem("userId"); // 또는 context/userState 등에서 가져오기
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios.get("http://localhost:8080/posts")
@@ -25,6 +28,7 @@ const MyPost = () => {
   return (
     <div className="my-post-container">
       <div className="my-post-wrapper">
+        <button className="detail-btn" onClick={() => navigate(-1)}>전체글</button>
         <h1 className="my-post-title">내가 쓴 글</h1>
   
         {posts.length > 0 ? (
